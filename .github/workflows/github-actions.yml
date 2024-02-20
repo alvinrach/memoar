@@ -19,7 +19,7 @@ jobs:
 
     - name: Run test using pytest
       run: |
-        docker exec memoar-fastapi-1 python pytest.py
+        docker exec memoar_fastapi_1 python pytest.py
 
     # - name: Set up Python
     #   uses: actions/setup-python@v2
