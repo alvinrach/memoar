@@ -5,8 +5,8 @@ services:
     build:
       context: .
     depends_on:
-      fastapi:
-        condition: service_healthy
+      - fastapi
+        # condition: service_healthy
     command: python pytest.py
     network_mode: host
 
@@ -16,9 +16,9 @@ services:
     # ports:
     #   - 8000:8000
     command: uvicorn main:app --host 0.0.0.0
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000/docs"]
-      interval: 10s
-      timeout: 5s
-      retries: 3
+    # healthcheck:
+    #   test: ["CMD", "curl", "-f", "http://localhost:8000/docs"]
+    #   interval: 10s
+    #   timeout: 5s
+    #   retries: 3
     network_mode: host
